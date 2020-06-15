@@ -7,13 +7,17 @@ var engine, world;
 var b1,b2,b3,b4,b5,b6,b7,b8,b9,b10,b11;
 var p1,p2;
 var connect;
+var game = "launch";
 
 function mouseDragged(){
-  Matter.Body.setPosition(b1.body, {x: mouseX , y: mouseY});
+  if(game === "launch"){
+    Matter.Body.setPosition(b1.body, {x: mouseX , y: mouseY});
+  }
 }
 
 function mouseReleased(){
   connect.bodyA = null;
+  game = "over";
 }
 
 function setup() {
